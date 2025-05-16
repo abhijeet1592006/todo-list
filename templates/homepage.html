@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home-page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <style>
     body{
@@ -25,7 +28,9 @@
         height: 50px;
         justify-content: space-evenly;
         
-        background-color: aliceblue;
+        background-color: rgba(240, 248, 255, 0.455);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(20px); /* i am doing this for safari bcs in my safari upper code didnt wwork*/
 
     }
     .cont{
@@ -40,7 +45,11 @@
         width: 150px;
         color: wheat;
         place-content: center;
-        text-decoration: none;
+        border-radius: 20px;        
+        font-family:sans-serif;
+        
+        font-weight: 600;
+        
         
     }
     a{
