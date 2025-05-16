@@ -21,6 +21,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        
     }
     .navbar{
         display: flex;
@@ -32,6 +33,7 @@
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(20px); /* i am doing this for safari bcs in my safari upper code didnt wwork*/
 
+        box-shadow: 0px 0px 30px #FCAEFF;
     }
     .cont{
         display: flex;
@@ -39,19 +41,48 @@
 
     }
     .navbtn{
+        position: relative;
         display: grid;
-        background-color: #2E2B5F;
-        padding: 5px;
+        background-color:transparent;
+        padding: 0px;
+        outline: none;
+        border: none;
         width: 150px;
         color: wheat;
         place-content: center;
         border-radius: 20px;        
         font-family:sans-serif;
-        
+        font-size: 18px;
         font-weight: 600;
         
         
     }
+    .navbtn::after{
+        position: absolute;
+        content: "";
+        background: #A298D7;
+        background: radial-gradient(circle, rgba(162, 152, 215, 1) 19%, rgba(214, 142, 255, 1) 47%, rgba(110, 90, 146, 1) 93%);
+        height: 5px;
+        border-radius: 20px;
+        left: 50%;
+
+
+
+        width:0%;
+        top: 40px;
+
+        place-content: center;
+        transform: translateX(-50%);
+        transition: width 0.4s ease;
+        z-index:-1;
+    }
+    .navbtn:hover::after{
+        width: 100%;
+    }
+
+    .navbtn:hover{
+        text-shadow: 0px 0px 15px #FCAEFF;
+    }    
     a{
         color: wheat;
         text-decoration: none;
