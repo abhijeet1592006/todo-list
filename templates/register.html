@@ -1,0 +1,259 @@
+<!-- MAY-17 2025 -->
+<!-- HI MY NAME IS ABHIJEET SINGH AND I AM BUILDNG THIS SMALL APP. HOPE YOU WILL ENJOY IT. -->
+<!-- THIS IS FRONTEND FOR LOGIN PAGE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<style>
+
+    body{                               /*main body styling*/
+        height: 100%;
+        background-image: url("/static/4.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        
+        
+
+    }
+    .app {
+        display: grid;
+        place-content: center;
+        
+   
+    }   
+    .loginbox {                         /*this is for that glassy login box*/
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 200px;
+        height: 600px;
+        width: 500px;
+    
+        color: white;
+        font-size: 28px;
+    
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter:blur(11px);            /*for blur*/
+        -webkit-backdrop-filter: blur(11px); /*doing this for safari browser so it works in that also*/
+        border-radius: 41px; /* here 492/12=41 if you know, you know! */
+    
+    }
+    
+    .orbitron{                      /*this is for text fonts*/
+        font-family: "Orbitron", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .orbitron.s{
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+    .head{
+        text-shadow: 0 0 5px #D68EFF;
+    }
+    .login{
+        display: flex;
+        padding: 15px;
+        place-content: center;
+        align-items: center;
+        
+        flex-direction: column;
+        gap: 35px;
+        border-radius: 30px;
+        
+    }
+    .login.l{
+        border: 0px solid rgb(244, 11, 11);
+        color: wheat;
+       
+    }
+    .lstyle{
+        width: 200px;
+        font-size: large;
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #ffffffd3;
+     
+        border: none;
+       
+        transition: all 0.3s ease;
+    }
+    .sbtn{
+        position: relative;
+        background-color: #d798d4;
+        width: 150px;
+        font-size: large;
+        padding: 10px;
+        border-radius: 20px;
+        z-index: 0;
+        border: none;
+        overflow: hidden;
+     
+        
+
+    }
+
+    .sbtn::after{
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 0%;
+        left: 0;
+        
+        top: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color:#6877ffaa ;
+        transition:300ms ease-in-out;
+        z-index: -1;
+
+
+    }
+    .sbtn:hover::after{
+     
+     
+        width: 100%;
+        
+        
+        
+        
+    }
+    .sbtn:hover{
+        color: wheat;
+        
+    }
+    .aa{
+        font-size: 20px;
+        top: 0;
+        color: white;
+    
+    }
+    .aa.b{
+        margin-top: 100px;
+        background-color: #ffb6f286;
+        padding: 20px;
+        color:rgb(16, 16, 16);
+        border-radius: 25px;
+        backdrop-filter: blur(20px);
+        font-family: sans-serif;
+    }
+  
+   
+    .in{
+        
+        border: none;
+        position: relative;
+        border-bottom: 2px solid #D68EFF;
+        background:transparent;
+        padding: 10px;
+        color:white;
+        font-size: 18px;
+    }
+
+    .in:focus{
+        outline: none;
+        color:white;
+
+        border-bottom: 2px solid #D68EFF;
+
+
+    }
+    .in::placeholder{
+        color: white;
+    }
+    
+   
+    label{
+        position: absolute;
+
+    }
+    .cherry {
+        position: fixed;
+        top: -10vh;
+
+        background-color: pink;
+        border-radius: 50% 50% 50% 0;
+        transform: rotate(45deg);
+        opacity: 0.5;
+
+        pointer-events: none;
+        z-index: 99;
+
+
+        animation-name: fall;
+        animation-timing-function: linear;
+
+        animation-iteration-count: infinite;
+  
+        box-shadow: 0 0 10px #ffb6f2, 0 0 20px #ffb6f2;
+      }
+  
+    @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+    }
+</style>
+
+<body>
+    <script>
+        const totalPetals = 40;
+      
+        for (let i = 0; i < totalPetals; i++) {
+          const petal = document.createElement("div");
+          petal.classList.add("cherry");
+      
+          petal.style.left = Math.random() * 100 + "vw";
+          petal.style.animationDelay = Math.random() * 7 + "s";
+          petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+          petal.style.width = petal.style.height = 10 + Math.random() * 15 + "px";
+      
+          document.body.appendChild(petal);
+        }
+    </script>
+    <div class="app">
+        <div class="loginbox">
+
+            <div class=head>
+                <h2 class="orbitron">REGISTER</h2>
+            </div>
+
+            <div class="login l">
+                <form class="login" action="/register" method="POST">
+                    <input  placeholder="NAME" class="in" type="text" name="name" required>
+
+                    <input  placeholder="USER NAME" class="in" type="text" name="user_name" required>
+                    <input  placeholder="PASSWORD" class="in" type="password" name="pwd" required>
+                    <button class='sbtn' type="submit"><p class="orbitron s">submit</p></button>
+                    <a class="aa"href="/">Allready Registerd. Login!</a>
+                    <a class="aa b">PLEASE TRY USERNAME-admin PASSWORD=admin TO LOGIN</a>
+                </form>
+                
+            </div>
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
