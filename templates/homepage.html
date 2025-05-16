@@ -20,7 +20,7 @@
     .app{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 50px;
         
     }
     .navbar{
@@ -37,7 +37,9 @@
     }
     .cont{
         display: flex;
-        background-color: #2E2B5F;
+    
+        flex-direction: column;
+        gap: 50px;
 
     }
     .navbtn{
@@ -60,8 +62,7 @@
     .navbtn::after{
         position: absolute;
         content: "";
-        background: #A298D7;
-        background: radial-gradient(circle, rgba(162, 152, 215, 1) 19%, rgba(214, 142, 255, 1) 47%, rgba(110, 90, 146, 1) 93%);
+        background: #fcaeffd3;
         height: 5px;
         border-radius: 20px;
         left: 50%;
@@ -86,6 +87,22 @@
     a{
         color: wheat;
         text-decoration: none;
+    }
+    .cardbox{
+        display: flex;
+        place-content: center;
+        height: 100px;
+    }
+    .card{
+        display: flex;
+        height: 100%;
+        width: 400px;
+        background-color: #FCAEFF;
+        padding: 10px;
+        border-radius: 10px;
+        flex-direction: column;
+        gap: 20px;
+
     }
 </style>
 <body>
@@ -114,7 +131,19 @@
             </div>
         </div>
         <div class="cont">
-            this is content
+            <div class="cardbox">
+                <div class="card"><div>TO-DO FROM j</div>this is card</div>
+            </div>
+            <div class="cardbox">
+                <div class="card"><div>TO-DO FROM k</div>this is card</div>
+            </div>
+            <div class="cardbox">
+                <div class="card"><div>TO-DO FROM l</div>this is card</div>
+            </div>
+            <div class="cardbox">
+                <div class="card"><div>TO-DO FROM j</div>this is card</div>
+            </div>
+
         </div>
 
     </div>
