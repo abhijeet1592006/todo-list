@@ -7,6 +7,7 @@
 </head>
 <style>
     body{
+        margin: 0;
         background: #2E2B5F;
         background: linear-gradient(180deg, rgba(46, 43, 95, 1) 0%, rgba(93, 78, 132, 1) 20%, rgba(110, 90, 146, 1) 39%, rgba(115, 92, 151, 1) 100%, rgba(214, 142, 255, 1) 100%);
         background-size: cover;
@@ -15,9 +16,67 @@
     }
     .app{
         display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .navbar{
+        display: flex;
+        padding: 10px;
+        height: 50px;
+        justify-content: space-evenly;
+        
+        background-color: aliceblue;
+
+    }
+    .cont{
+        display: flex;
+        background-color: #2E2B5F;
+
+    }
+    .navbtn{
+        display: grid;
+        background-color: #2E2B5F;
+        padding: 5px;
+        width: 150px;
+        color: wheat;
+        place-content: center;
+        text-decoration: none;
+        
+    }
+    a{
+        color: wheat;
+        text-decoration: none;
     }
 </style>
 <body>
-    
+    <div class="app">
+        <div class="navbar">
+
+            <div class="navbtn">
+                <a href="#">ALL TO-DO</a>
+            </div>
+
+            <div class="navbtn">
+                <a href="#">ADD TO-DO</a>
+            </div>
+
+
+            <div class="navbtn">
+                <a href="#">YOUR TO-DO</a>
+            </div>
+
+            <div class="navbtn">
+                <a href="#">FRIEND'S TO-DO</a>
+            </div>
+
+            <div class="navbtn">
+                <a href="#">LOGOUT</a>
+            </div>
+        </div>
+        <div class="cont">
+            this is content
+        </div>
+
+    </div>
 </body>
 </html>
