@@ -91,7 +91,7 @@
     .cardbox{
         display: flex;
         place-content: center;
-        height: 100px;
+        height: 400px;
     }
     .card{
         display: flex;
@@ -103,7 +103,7 @@
         padding: 10px;
         border-radius: 10px;
         flex-direction: column;
-        gap: 20px;
+        gap: 50px;
         scrollbar-width: none;
 
     }
@@ -138,23 +138,81 @@
         opacity: 0.5;
 
       }
+      input[type="text"]{
+        height: 30px;
+        font-size: large;
+        outline: none;
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+        border-bottom: 2px solid palevioletred;
+        color: white;
+      }
+      input::placeholder{
+        color: white;
+      }
       .cc{
         display: flex;
         font-size: medium;
         gap: 10px;
-        align-items: center;
         justify-content: space-evenly;
+        flex-direction: column;
       }
       .txt{
         color: aliceblue;
-        font-size: medium;
+        font-size: x-large;
         font-family:orbitron;
+        text-shadow: 0px 1px 20px rgb(52, 45, 251);
         
       }
       .txt.w{
         font-size: large;
         letter-spacing: 1.5px;
       }
+      .sbtn{
+        position: relative;
+        background-color: #d798d4;
+        width: 150px;
+        font-size: large;
+        padding: 10px;
+        border-radius: 20px;
+        z-index: 0;
+        border: none;
+        overflow: hidden;
+     
+        
+
+    }
+
+    .sbtn::after{
+        position: absolute;
+        content: '';
+        height: 100%;
+        width: 0%;
+        left: 0;
+        
+        top: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        background-color:#6877ffaa ;
+        transition:300ms ease-in-out;
+        z-index: -1;
+
+
+    }
+    .sbtn:hover::after{
+     
+        
+        width: 100%;
+        
+        
+        
+        
+    }
+    .sbtn:hover{
+        color: wheat;
+        
+    }
 </style>
 <body>
     <canvas id="starCanvas"></canvas>
@@ -200,10 +258,20 @@
             </style>
             <div class="cardbox">
 
-                <div class="card"><div class="txt">TO-DO FROM j</div>
+                <div class="card"><div class="txt" >ADD TO-DO</div>
                 <div class="cc">
-                    <input type="checkbox" />
-                    <span class="txt w">Destroy anxiety </span>
+                    <input type="text" placeholder="WRITE HERE">
+                    <div>
+                        <br>
+                        <a class="txt">PRIORITY</a>
+                        <br><br>
+                        <input type="radio" name="pri"><b class="txt w">HIGH</b><br><br>
+                        <input type="radio" name="pri"><b class="txt w">MEDIUM</b><br><br>
+                        <input type="radio" name="pri"><b class="txt w">LOW</b><br><br><br>
+                        <button class="sbtn">ADD TO-DO</button>
+                    </div>
+
+                    
                 
                 </div>
             </div>
