@@ -2,7 +2,7 @@
 #HI MY NAME IS ABHIJEET SINGH AND I AM BUILDNG THIS SMALL APP. HOPE YOU WILL ENJOY IT.
 
 
-from flask import Flask,render_template,redirect,session,request #IMPORTING BASIC MODULES
+from flask import Flask,render_template,redirect,session,request,url_for #IMPORTING BASIC MODULES
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -20,7 +20,7 @@ class Data(db.Model):
     Name=db.Column(db.String(20),nullable=False)        #here false means this field can not be empty
     user_name=db.Column(db.String(20),nullable=False)   #here false means this field can not be empty
 
-    pwd=db.Column(db.Integer,nullable=False)            #here false means this field can not be empty
+    pwd=db.Column(db.String(100),nullable=False)            #here false means this field can not be empty
 
 
 class Message(db.Model):    #making another table
@@ -35,29 +35,78 @@ with app.app_context():
 
 @app.route("/",methods=["POST","GET"]) #here i am making a app route to address"/"
 def main():
-
+    user=None
     if request.method=="POST":
+        user=request.form['user_name']
+        p=request.form['pwd']
+
+        data=Data.query.filter(Data.user_name==user).first()
+        if data.pwd==p:
+            session['user']=user
+        else:
+            return redirect(url_for("reg"))
+
+    if "user" in session:
+        return redirect(url_for("your"))
+    else:
+        return render_template("index.html")
 
 
-        print(request.form["user_name"])
-
-        print(request.form["pwd"])
-        
-
-    return render_template("index.html")
-
-
+    
 @app.route("/register",methods=['POST',"GET"])
 def reg():
     if request.method=="POST":
-        print(request.form["name"])
-
-        print(request.form["user_name"])
-
-        print(request.form["pwd"])
+        name=request.form['name']
+        user_name=request.form['user_name']
+        password=request.form['pwd']
+        data1=Data(Name=name,user_name=user_name,pwd=password)
+        db.session.add(data1)
+        db.session.commit()
         
-    return render_template("register.html")
-        
+        return redirect(url_for("main"))
+    else:
+        return render_template("register.html")
+ 
+
+
+    
+@app.route("/your-to-do",methods=['POST',"GET"])
+def your():
+    if 'user' in session:
+        return render_template("homepage.html")
+    else:
+        return redirect(url_for("main"))
+
+@app.route("/add-to-do", methods=["POST", "GET"])
+def add():
+    if 'user' in session:
+        uo = session['user']
+        h = Data.query.filter(Data.user_name == uo).first()
+
+        if request.method == "POST":
+            msg = request.form['addtodo']
+            priority = request.form["pri"]  
+
+            new_msg = Message(
+                mid=h.id,  
+                message=msg,
+                message_priority=priority
+            )
+
+            db.session.add(new_msg)
+            db.session.commit()
+
+            return redirect(url_for("your"))  
+
+        return render_template("addtodo.html")
+    else:
+        return redirect(url_for("main"))
+
+
+    
+    
+    
+    
 
 
 if __name__=="__main__":
