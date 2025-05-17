@@ -1,4 +1,3 @@
-#MAY-16 2025 10:20 am
 #HI MY NAME IS ABHIJEET SINGH AND I AM BUILDNG THIS SMALL APP. HOPE YOU WILL ENJOY IT.
 
 
@@ -109,8 +108,19 @@ def add():
         return redirect(url_for("main"))
 
 
-    
-    
+@app.route("/del/<int:id>", methods=["POST"])
+def delete_todo(id):
+    if 'user' not in session:
+        return redirect('/')
+
+    todo = Message.query.get(id)
+    if todo:
+        db.session.delete(todo)
+        db.session.commit()
+
+    return redirect("/your-to-do")  
+
+
     
     
 @app.route("/friends-to-do")
