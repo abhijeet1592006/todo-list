@@ -113,7 +113,15 @@ def add():
     
     
     
+@app.route("/friends-to-do")
+def friends_todo():
+    if 'user' not in session:
+        return redirect(url_for("main"))
 
+    
+    all_todos = db.session.query(Message, Data).join(Data, Message.mid == Data.id).all()
+
+    return render_template("friendstodo.html", all_todos=all_todos)
 
 if __name__=="__main__":
 

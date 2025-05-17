@@ -182,26 +182,13 @@
                 <a href="#">LOGOUT</a>
             </div>
         </div>
+        {% for todo in todos %}
         <div class="cont">
 
-            <style>     /*i know this is very unprofessional but it works great*/
-                .card{
-                    display: flex;
-                    height: 100%;
-                    width: 400px;
-                    background-color: #fcaeff6d;
-                    backdrop-filter: blur(12px);
-                    -webkit-backdrop-filter: blur(12px);
-                    padding: 10px;
-                    border-radius: 10px;
-                    flex-direction: column;
-                    gap: 20px;
-                    border-left: 5px solid rgba(7, 252, 191, 0.817);
+           
             
-                }
-            </style>
             <div class="cardbox">
-              {% for todo in todos %}
+              
                 <div class="card">
                 <div class="txt">TO-DO FROM {{ user }}</div>
                 <div class="cc">
@@ -210,17 +197,21 @@
                 
                     <button>delete</button>
                 </div>
-              {% endfor %}
+           
 
 
 
 
             </div>
             </div>
-
+        
         </div>
+        {% endfor %}
 
+        
+        
     </div>
+   
 
     <script>
         const canvs = document.getElementById('starCanvas');
