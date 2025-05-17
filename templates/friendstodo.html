@@ -83,6 +83,25 @@
 
     .navbtn:hover{
         text-shadow: 0px 0px 15px #FCAEFF;
+    }
+    .navbtn.ac::after{
+      position: absolute;
+        content: "";
+        background: #fcaeffd3;
+        height: 5px;
+        border-radius: 20px;
+        left: 50%;
+
+      
+
+        width:100%;
+        top: 40px;
+
+        place-content: center;
+        transform: translateX(-50%);
+        transition: width 0.4s ease;
+        z-index:-1;
+
     }    
     a{
         color: wheat;
@@ -172,7 +191,7 @@
 
            
 
-            <div class="navbtn">
+            <div class="navbtn ac">
                 <a href="/friends-to-do">FRIEND'S TO-DO</a>
             </div>
 

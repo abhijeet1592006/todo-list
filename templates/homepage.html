@@ -59,6 +59,25 @@
         
         
     }
+    .navbtn.ac::after{
+      position: absolute;
+        content: "";
+        background: #fcaeffd3;
+        height: 5px;
+        border-radius: 20px;
+        left: 50%;
+
+
+
+        width:100%;
+        top: 40px;
+
+        place-content: center;
+        transform: translateX(-50%);
+        transition: width 0.4s ease;
+        z-index:-1;
+
+    }
     .navbtn::after{
         position: absolute;
         content: "";
@@ -180,25 +199,46 @@
         font-family:orbitron;
         
       }
+      
       .txt.w{
         font-size: large;
         letter-spacing: 1.5px;
       }
       .txt.h{
-        margin-left: 100px;
+        margin-left: 120px;
+        color: rgba(40, 51, 68, 0.867);
+        font-weight: bold;
+        font-size: 18px;
       }
-      .del{
+      .del {
         position: relative;
-        background-color:rgba(236, 77, 236, 0.758);
-        color: black;
-        border-radius: 50% 50%;
-        padding: 5px;
-        outline: none;
+        background: rgba(146, 77, 236, 0.6);
         border: none;
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       }
- 
-      .del:hover{
-        color: white;
+      
+     
+      
+      .del:hover {
+        transform: scale(1.2) rotate(10deg);
+        background: rgba(236, 77, 82, 0.8);
+        box-shadow: 0 4px 12px rgba(236, 77, 236, 0.6);
+      }
+      
+      
+      
+      .del:active {
+        transform: scale(0.9) rotate(-20deg);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
       }
 
       .card.high {
@@ -221,7 +261,7 @@
     <div class="app">
         <div class="navbar">
 
-            <div class="navbtn">
+            <div class="navbtn ac">
                 <a href="/your-to-do">YOUR TO-DO</a>
             </div>
 

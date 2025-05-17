@@ -274,6 +274,25 @@
 
     .ra.low{ 
       color: #4cd137;
+    }
+    .navbtn.ac::after{
+      position: absolute;
+        content: "";
+        background: #fcaeffd3;
+        height: 5px;
+        border-radius: 20px;
+        left: 50%;
+
+
+
+        width:100%;
+        top: 40px;
+
+        place-content: center;
+        transform: translateX(-50%);
+        transition: width 0.4s ease;
+        z-index:-1;
+
     }  
 
 </style>
@@ -286,7 +305,7 @@
                 <a href="/your-to-do">YOUR TO-DO</a>
             </div>
 
-            <div class="navbtn">
+            <div class="navbtn ac">
                 <a href="/add-to-do">ADD TO-DO</a>
             </div>
 
