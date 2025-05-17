@@ -5,12 +5,12 @@ from flask import Flask,render_template,redirect,session,request,url_for #IMPORT
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-app=Flask(__name__)         #making our app
+app=Flask(__name__)         #making my app
 
 app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///maindatabase.db'#this is for database
 app.secret_key="HI ITS ABHIJEET"#this is secret key for our app
 
-db=SQLAlchemy(app)          #for our database
+db=SQLAlchemy(app)          #for myr database
 
 class Data(db.Model):       
     
