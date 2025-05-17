@@ -201,14 +201,20 @@
                 }
             </style>
             <div class="cardbox">
-
-                <div class="card"><div class="txt">TO-DO FROM j</div>
+              {% for todo in todos %}
+                <div class="card">
+                <div class="txt">TO-DO FROM {{ user }}</div>
                 <div class="cc">
                     <input type="checkbox" />
-                    <span class="txt w">Destroy anxiety?</span>
+                    <span class="txt w">{{ todo.message }}</span>
                 
                     <button>delete</button>
                 </div>
+              {% endfor %}
+
+
+
+
             </div>
             </div>
 

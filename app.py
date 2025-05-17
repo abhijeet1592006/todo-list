@@ -41,7 +41,7 @@ def main():
         p=request.form['pwd']
 
         data=Data.query.filter(Data.user_name==user).first()
-        if data.pwd==p:
+        if data and data.pwd==p:
             session['user']=user
         else:
             return redirect(url_for("reg"))
@@ -70,12 +70,18 @@ def reg():
 
 
     
-@app.route("/your-to-do",methods=['POST',"GET"])
+@app.route("/your-to-do", methods=['POST', "GET"])
 def your():
     if 'user' in session:
-        return render_template("homepage.html")
+        cuser = session['user']
+        user_data = Data.query.filter_by(user_name=cuser).first()
+
+        todos = Message.query.filter_by(mid=user_data.id).all()
+
+        return render_template("homepage.html", todos=todos, user=cuser)
     else:
         return redirect(url_for("main"))
+
 
 @app.route("/add-to-do", methods=["POST", "GET"])
 def add():
