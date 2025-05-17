@@ -200,6 +200,21 @@
       .del:hover{
         color: white;
       }
+
+      .card.high {
+        border-left: 10px solid #ff4b5c; /* RED */
+        box-shadow: 0 0 20px #ff4b5c55;
+      }
+      
+      .card.medium {
+        border-left: 10px solid #ffd93d; /* YELLOW */
+        box-shadow: 0 0 20px #ffd93d55;
+      }
+      
+      .card.low {
+        border-left: 10px solid #4cd137; /* GREEN */
+        box-shadow: 0 0 20px #4cd13755;
+      }
 </style>
 <body>
     <canvas id="starCanvas"></canvas>
@@ -232,7 +247,7 @@
             
             <div class="cardbox">
               
-                <div class="card">
+                <div class="card {{ todo.message_priority|lower }}">
                 <div class="txt h">TO-DO FROM {{ user }}</div>
                 <div class="cc">
                     <input type="checkbox" />
