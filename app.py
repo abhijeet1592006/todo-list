@@ -123,6 +123,13 @@ def friends_todo():
 
     return render_template("friendstodo.html", all_todos=all_todos)
 
+
+
+@app.route("/logout")
+def logout():
+    session.pop('user', None)  
+    return redirect(url_for("main"))  
+
 if __name__=="__main__":
 
    
